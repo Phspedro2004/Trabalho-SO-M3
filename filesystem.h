@@ -39,6 +39,7 @@ typedef struct BTree {
 
 typedef struct Directory {
     BTree* tree;
+    struct Directory* parent; // novo campo
 } Directory;
 
 // BTree Functions
@@ -50,7 +51,7 @@ void btree_traverse(BTree* tree);
 
 // File/Directory creation
 TreeNode* create_txt_file(const char* name, const char* content);
-TreeNode* create_directory(const char* name);
+TreeNode* create_directory(const char* name, Directory* parent);
 void delete_txt_file(BTree* tree, const char* name);
 void delete_directory(BTree* tree, const char* name);
 

@@ -1,10 +1,11 @@
 CC = gcc
 CFLAGS = -Wall -g
+OBJ = main.o filesystem.o
 
 all: main
 
-main: main.o filesystem.o
-	$(CC) $(CFLAGS) -o main main.o filesystem.o
+main: $(OBJ)
+	$(CC) $(CFLAGS) -o main $(OBJ)
 
 main.o: main.c filesystem.h
 	$(CC) $(CFLAGS) -c main.c
